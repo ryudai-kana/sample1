@@ -1,8 +1,10 @@
 import firebase from '~/plugins/firebase'
 
+
 export const state = () => ({
     user: null,
     info: null,
+    users: []
   })
   
   export const mutations = {

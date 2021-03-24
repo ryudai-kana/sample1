@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
+    "@vue/composition-api": "^1.0.0-rc.5",
     "core-js": "^3.8.3",
     "firebase": "^8.3.1",
     "nuxt": "^2.14.12",
