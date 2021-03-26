@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import 'firebase/firestore'
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
@@ -14,3 +15,4 @@ if (!firebase.apps.length) {
 const db = firebase.firestore()
 
 export default firebase
+
