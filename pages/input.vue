@@ -37,7 +37,9 @@
                         <v-spacer></v-spacer>
                         <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
                         <v-btn color="blue darken-1" text @click="submit">Save</v-btn>
-                        <v-btn color="blue darken-1" text @click="conf">確認</v-btn>
+                        <v-btn
+                         text
+                         v-on:click="Conf">確認</v-btn>
                     </v-card-actions>
                     </v-card>
                 </v-dialog>
@@ -75,15 +77,34 @@
             });
             if (dbDeliverys){alert("更新完了")}else {alert("更新失敗")}
         },
-        conf () {
-            db.collection('deliverys')
-             .get()
-             .then((querySnapshot) => {
-                 querySnapshot.forEach((doc) => {
-                     console.log(doc.deliveryBlue())
-                 })
-             })
+        async Conf({ commit }) {
+            const db = firebase.firestore()
+            const deliverys = []
+            const querySnapshot = await db.collection('deliverys').get()
+
+            querySnapshot.forEach((doc) => {
+                deliverys.push({
+                    id: doc.J1sBuYY43uk9wFRQRhEw, // ドキュメントID
+                    ...doc.data()
+                })
+            })
+            const deliverysInfo = []
+            for (let i = 0; i < deliverys.length; i++) {
+                const deliveryInfo = deliverys[i]
+                deliverysInfo.push(deliveryInfo)
+            }
+            commit('describe', { defaultInfo: deliverysInfo })
         }
+        // conf () {
+        //     const db = firebase.firestore()
+        //     db.collection('deliverys')
+        //      .get()
+        //      .then((querySnapshot) => {
+        //          querySnapshot.forEach((doc) => {
+        //              console.log(doc.deliveryBlue())
+        //          })
+        //      })
+        // },
     },
-  }
+}
 </script>
