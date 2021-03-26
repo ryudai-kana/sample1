@@ -2,7 +2,7 @@
     <v-app id="app">
         <div class="text-center">
             <v-row justify="center">
-                <v-dialog v-model="dialog" persistent max-width="600px">
+                <v-dialog v-model="dialog" persistent max-width="600 px">
                     <template v-slot:activator="{ on, attrs }">
                         <v-btn
                             color="primary"
@@ -17,27 +17,9 @@
                     <v-card-title>
                         <span class="headline">納品・回収数</span>
                     </v-card-title>
-                    <v-card-text>
-                    <v-container>
-                        <v-row>
-                            <v-card-title>
-                                納品
-                            </v-card-title>
-                            <v-card>
-                                青納品数
-                            </v-card>
-                            <v-col cols="1" sm="1" md="1">
-                                <v-text-field label="数" required></v-text-field>
-                            </v-col>
-                            <v-card>
-                                オレンジ納品数
-                            </v-card>
-                            <v-col cols="1" sm="1" md="1">
-                                <v-text-field label="数" required></v-text-field>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                    </v-card-text>
+                    <v-title>納品</v-title>
+                    <v-card>青納品数</v-card>
+                    <v-text-field label="数"></v-text-field>
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
