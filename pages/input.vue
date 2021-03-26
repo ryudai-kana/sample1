@@ -10,7 +10,7 @@
                             v-bind="attrs"
                             v-on="on"
                         >
-                            Open Dialog
+                            店舗A
                         </v-btn>
                     </template>
                     <v-card>
@@ -20,20 +20,15 @@
                     <v-card-text>
                     <v-container>
                         <v-row>
-                            <v-card-title>
-                                納品
-                            </v-card-title>
-                            <v-card>
-                                青納品数
-                            </v-card>
-                            <v-col cols="1" sm="1" md="1">
-                                <v-text-field label="数" required></v-text-field>
-                            </v-col>
-                            <v-card>
-                                オレンジ納品数
-                            </v-card>
-                            <v-col cols="1" sm="1" md="1">
-                                <v-text-field label="数" required></v-text-field>
+                            <v-col
+                               cols="12"
+                               sm="6"
+                               v-for='(item,index) in input' :key=index
+                            >
+                                <v-text-field
+                                    :label=item.label
+                                    v-model=item.count
+                                ></v-text-field>
                             </v-col>
                         </v-row>
                     </v-container>
@@ -41,7 +36,8 @@
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-                        <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
+                        <v-btn color="blue darken-1" text @click="submit">Save</v-btn>
+                        <v-btn color="blue darken-1" text @click="conf">確認</v-btn>
                     </v-card-actions>
                     </v-card>
                 </v-dialog>
@@ -51,11 +47,43 @@
 </template>
 
 <script>
+  import firebase from "../plugins/firebase"
   export default {
     data () {
       return {
         dialog: false,
+        bluenumber: 0,
+        input: [
+        { label: "青納品数", count: 0 },
+        { label: "オレンジ納品数", count: 0 },
+        { label: "赤納品数", count: 0 },
+        { label: "緑納品数", count: 0 },
+      ],
       }
+    },
+    methods: {
+        async submit () {
+            const db = firebase.firestore()
+            let dbDeliverys = await db.collection('deliverys').doc('J1sBuYY43uk9wFRQRhEw')
+             .set({
+                 deliveryBlue: this.bluenumber,
+             })
+             .then(()=>{ return true }).catch(function (err) {
+                console.log(err)
+                return false
+
+            });
+            if (dbDeliverys){alert("更新完了")}else {alert("更新失敗")}
+        },
+        conf () {
+            db.collection('deliverys')
+             .get()
+             .then((querySnapshot) => {
+                 querySnapshot.forEach((doc) => {
+                     console.log(doc.deliveryBlue())
+                 })
+             })
+        }
     },
   }
 </script>
