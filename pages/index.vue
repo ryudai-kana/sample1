@@ -25,7 +25,6 @@
             </v-card-text>
             <v-card-actions>
               <v-btn
-                text
                 v-on:click="gotoSignup"
               >SIGNUP</v-btn>
               <v-spacer></v-spacer>
@@ -44,7 +43,6 @@
 
 <script>
 import firebase from '~/plugins/firebase'
-
 export default {
   data() {
     return {
