@@ -2,17 +2,37 @@
     <v-app id="app">
         <div class="text-center">
             <v-row justify="center">
-                <v-dialog v-model="dialog" persistent max-width="600 px">
-                    <template v-slot:activator="{ on, attrs }">
+                <v-col>
                         <v-btn
+                            block
+                            x-large
                             color="primary"
                             dark
-                            v-bind="attrs"
-                            v-on="on"
+                            @click="dialogSwitch('A')"
                         >
                             店舗A
                         </v-btn>
-                    </template>
+                        <br>
+                        <v-btn
+                            block
+                            x-large
+                            color="primary"
+                            dark
+                            @click="dialogSwitch('B')"
+                        >
+                            店舗B
+                        </v-btn>
+                        <br>
+                        <v-btn
+                            block
+                            x-large
+                            color="primary"
+                            dark
+                            @click="dialogSwitch('C')"
+                        >
+                            店舗C
+                        </v-btn>
+                <v-dialog v-model="dialog" persistent max-width="600 px">
                     <v-card>
                     <v-card-title>
                         <span class="headline">納品・回収数</span>
@@ -51,6 +71,7 @@
                     </v-card-actions>
                     </v-card>
                 </v-dialog>
+                </v-col>
             </v-row>
         </div>
     </v-app>
@@ -78,6 +99,10 @@
       }
     },
     methods: {
+        dialogSwitch (shopName) {
+            console.log(shopName)
+            this.dialog= true
+        },
         async submit () {
             //日時取得
             var today = new Date();
@@ -91,8 +116,6 @@
             //pickValues宣言
             var pickValues = {blue: this.inputPick.bluePick.number, other: this.inputPick.otherPick.number}
             console.log(pickValues)
-
-            直し// console.log(v-btn.value)
 
             const db = firebase.firestore()
             let dbDeliverys = await db.collection('deliverys').doc('J1sBuYY43uk9wFRQRhEw')

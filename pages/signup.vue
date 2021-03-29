@@ -31,6 +31,9 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
+                to="/"
+              >戻る</v-btn>
+              <v-btn
                 v-on:click="signUp"
               >登録</v-btn>
             </v-card-actions>
@@ -82,7 +85,7 @@ export default {
                 // }
             });
             if (dbUsers){alert("更新完了")}else {alert("更新失敗")}
-        }
+        },
     }
 }
 </script>
