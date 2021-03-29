@@ -8,7 +8,6 @@
                             color="primary"
                             dark
                             v-bind="attrs"
-                            直し<!-- value= "$fhsJK86#fhsWPlj" --> -->
                             v-on="on"
                         >
                             店舗A
@@ -116,11 +115,11 @@
 
             querySnapshot.forEach((doc) => {
                 console.log(doc.id)
-                console.log(doc.data().deliverys) 
+                console.log(doc.data().deliverys)
                 var deliverysNumber = doc.data().deliverys
                 for(var key in this.input){
                     this.input[key].count = deliverysNumber[key]
-                }  
+                }
             })
         }
     },
