@@ -79,6 +79,10 @@
 
 <script>
   import firebase from "../plugins/firebase"
+  var today = new Date();
+  console.log(today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate());
+  var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate()
+
   export default {
     data () {
       return {
@@ -95,32 +99,27 @@
         bluePick:{ label: "青回収数", number: 0 },
         otherPick:{ label: "その他回収数", number: 0 },
         },
-
       }
     },
     methods: {
         dialogSwitch (shopName) {
-            console.log(shopName)
             this.dialog= true
         },
         async submit () {
-            //日時取得
-            var today = new Date();
-            console.log(today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate());
-            var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate()
-
-            //setValues宣言
-            var setValues = {blue: this.inputDeli.blueDeli.count, orange: this.inputDeli.orangeDeli.count, red: this.inputDeli.redDeli.count, green: this.inputDeli.greenDeli.count}
-            console.log(setValues)
+            //deliValues宣言
+            var deliValues = {blue: this.inputDeli.blueDeli.count, orange: this.inputDeli.orangeDeli.count, red: this.inputDeli.redDeli.count, green: this.inputDeli.greenDeli.count}
+            console.log(deliValues)
 
             //pickValues宣言
             var pickValues = {blue: this.inputPick.bluePick.number, other: this.inputPick.otherPick.number}
             console.log(pickValues)
 
+            var shopList = {}
+
             const db = firebase.firestore()
             let dbDeliverys = await db.collection('deliverys').doc('J1sBuYY43uk9wFRQRhEw')
              .update({
-                 deliverys: setValues,
+                 distribute: deliValues,
                  date: todayDate,
                  pickups: pickValues,
              })
@@ -133,10 +132,16 @@
         },
         async conf () {
             const db = firebase.firestore()
-            // const deliverys = []
-            const querySnapshot = await db.collection('deliverys').where("id", "==", "$a2ZRNk#mun9RPr3").get()
 
+            const querySnapshot = await db.collection('deliverys').where("id", "==", "J1sBuYY43uk9wFRQRhEw").get()
             querySnapshot.forEach((doc) => {
+                var id = doc["shopId"]
+
+                if(this.deliverys[shopId] != undefined) {
+                    this.deliverys[shopId] = doc
+                }
+
+                console.log(id)
                 console.log(doc.id)
                 console.log(doc.data().deliverys)
                 var deliverysNumber = doc.data().deliverys
@@ -144,7 +149,7 @@
                     this.input[key].count = deliverysNumber[key]
                 }
             })
-        }
+        },    
     },
     mounted(){
         this.conf()
