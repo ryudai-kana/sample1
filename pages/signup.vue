@@ -79,10 +79,6 @@ export default {
                  Password: this.password,
              })
              .then(()=>{ return true }).catch(function (err) {
-                // if (!email || !password || !username){
-                //   console.log(err)
-                //   return false
-                // }
             });
             if (dbUsers){alert("更新完了")}else {alert("更新失敗")}
         },
