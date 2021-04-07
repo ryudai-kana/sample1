@@ -24,13 +24,12 @@
               </v-form>
             </v-card-text>
             <v-card-actions>
+              <v-flex xs12 sm15 md15 text-center my-5>
               <v-btn
-                v-on:click="gotoSignup"
-              >SIGNUP</v-btn>
-              <v-spacer></v-spacer>
-              <v-btn
+                align-center
                 v-on:click="doLogin"
               >LOGIN</v-btn>
+              </v-flex>
             </v-card-actions>
             <hr>
             <v-spacer></v-spacer>
@@ -51,14 +50,26 @@ export default {
       show_password: false,
     }
   },
+  
   methods: {
     doLogin() {
-        firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-          .then(user => {
+
+          if (this.email = "b@test.com") {
+            firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            .then(user => {
             this.$router.push("/input")
-          }).catch((error) => {
-            alert(error)
-          })
+            }).catch((error) => {
+              alert(error)
+            })
+          } else if (this.email = "1@test.com") {
+             firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+             .then(user => {
+             this.$router.push("/input2")
+             }).catch((error) => {
+               alert(error)
+             })
+          }
+          
     },
     gotoSignup() {
       this.$router.push("/signup")

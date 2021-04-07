@@ -58,7 +58,7 @@ export default {
             show_password: false,
         }
     },
-    methods: {
+    methods: {      
         signUp: function () {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
             .then((result) => {

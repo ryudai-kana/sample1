@@ -11,7 +11,7 @@
                             dark
                             @click="dialogSwitch('A')"
                         >
-                            DS茅ヶ崎
+                            DS鬼ヶ島
                         </v-btn>
                         <br>
                         <v-btn
