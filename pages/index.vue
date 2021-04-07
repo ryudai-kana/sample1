@@ -8,8 +8,9 @@
               <v-toolbar-title>Login</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-              <v-form>
+              <v-form name="form1">
                 <v-text-field
+                  name="Email"
                   v-model="email"
                   :counter="32"
                   label="email"
@@ -53,15 +54,13 @@ export default {
   
   methods: {
     doLogin() {
-
-          if (this.email = "b@test.com") {
+        var adress = document.form1.Email.value;
+          if (adress = "b@test.com") {
             firebase.auth().signInWithEmailAndPassword(this.email, this.password)
             .then(user => {
             this.$router.push("/input")
-            }).catch((error) => {
-              alert(error)
             })
-          } else if (this.email = "1@test.com") {
+          } else if (adress = "1@test.com") {
              firebase.auth().signInWithEmailAndPassword(this.email, this.password)
              .then(user => {
              this.$router.push("/input2")
@@ -69,10 +68,6 @@ export default {
                alert(error)
              })
           }
-          
-    },
-    gotoSignup() {
-      this.$router.push("/signup")
     },
   }
 }
