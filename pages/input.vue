@@ -4,6 +4,8 @@
             <v-row justify="center">
                 <v-col>
                     <v-card-title>ハイエース</v-card-title>
+                    <body onload= "Settoday();">
+                    <div id="Wed" style="display:none">
                         <v-btn
                             block
                             x-large
@@ -84,6 +86,7 @@
                             DS浦和
                         </v-btn>
                         <br>
+                    </div>
                         <v-btn
                             block
                             x-large
@@ -765,6 +768,7 @@
                         >
                             DS高円寺
                         </v-btn>
+                    </body>
 
                 <v-dialog v-model="dialog" persistent max-width="600 px">
                     <v-card>
@@ -815,6 +819,11 @@
   var today = new Date();
   console.log(today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate());
   var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate()
+
+  function Settoday () {
+      var weekday = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
+      document.getElementById(weekday[today.getDay()]).style.display="block";
+  }
 
   export default {
     data () {
@@ -887,3 +896,4 @@
     }
 }
 </script>
+
