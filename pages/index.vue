@@ -54,20 +54,26 @@ export default {
   
   methods: {
     doLogin() {
-        var adress = document.form1.Email.value;
-          if (adress = "b@test.com") {
-            firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-            .then(user => {
-            this.$router.push("/input")
-            })
-          } else if (adress = "1@test.com") {
-             firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-             .then(user => {
-             this.$router.push("/input2")
-             }).catch((error) => {
-               alert(error)
-             })
+        var address = document.form1.Email.value;
+        var loginBool = firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+        .then(user => {return user})
+        .catch(err => {return false})
+
+        if(loginBool){
+          switch(address) {
+            case "b@test.com":
+              this.$router.push("/hiaceDeli");
+              break;
+            case "1@test.com":
+              this.$router.push("/elfDeli");
+              break;
+            case "test@test.com":
+              this.$router.push("/dynaDeli");
+              break;
           }
+        } else {
+          console.log("ログインできませんでした");
+        }         
     },
   }
 }
