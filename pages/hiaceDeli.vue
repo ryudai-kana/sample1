@@ -13,7 +13,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('A')"
+                            @click="dialogSwitch('A001')"
                         >
                             DS茅ヶ崎
                         </v-btn>
@@ -23,7 +23,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('B')"
+                            @click="dialogSwitch('A002')"
                         >
                             DS戸塚
                         </v-btn>
@@ -33,7 +33,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A003')"
                         >
                             DS桜木町
                         </v-btn>
@@ -43,7 +43,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A004')"
                         >
                             DSみなとみらい
                         </v-btn>
@@ -53,7 +53,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A005')"
                         >
                             DS横浜ポルタ
                         </v-btn>
@@ -63,7 +63,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A006')"
                         >
                             DS大宮
                         </v-btn>
@@ -73,7 +73,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A007')"
                         >
                             DS新都心
                         </v-btn>
@@ -83,7 +83,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A008')"
                         >
                             DS浦和
                         </v-btn>
@@ -93,7 +93,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A009')"
                         >
                             DS大井町
                         </v-btn>
@@ -103,7 +103,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A010')"
                         >
                             DS八重洲
                         </v-btn>
@@ -113,7 +113,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A011')"
                         >
                             DS赤坂
                         </v-btn>
@@ -123,7 +123,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A012')"
                         >
                             MN赤坂
                         </v-btn>
@@ -133,7 +133,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A013')"
                         >
                             DS新宿サブナード
                         </v-btn>
@@ -143,7 +143,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A014')"
                         >
                             DS新宿ハルク
                         </v-btn>
@@ -153,7 +153,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A015')"
                         >
                             DS中野
                         </v-btn>
@@ -206,10 +206,7 @@
   var today = new Date();
   console.log(today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate());
   var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate()
-  const stores = {
-      "DS茅ヶ崎" : ,
-      "DS戸塚" : ,
-  }
+
 
   export default {
     data () {
@@ -219,7 +216,7 @@
         inputDeli: {
         blueDeli:{ label: "青納品数", count: 0 },
         orangeDeli:{ label: "オレンジ納品数", count: 0 },
-        redDeli:{ label: "赤納品数", count: 0 },
+        whiteDeli:{ label: "白納品数", count: 0 },
         greenDeli:{ label: "緑納品数", count: 0 },
         },
         //回収の連想配列
@@ -237,12 +234,12 @@
       }
     },
     methods: {
-        dialogSwitch (shopName) {
+        dialogSwitch (shopID) {
             this.dialog= true
         },
         async submit () {
             //deliValues宣言
-            var deliValues = {blue: this.inputDeli.blueDeli.count, orange: this.inputDeli.orangeDeli.count, red: this.inputDeli.redDeli.count, green: this.inputDeli.greenDeli.count}
+            var deliValues = {blue: this.inputDeli.blueDeli.count, orange: this.inputDeli.orangeDeli.count, white: this.inputDeli.whiteDeli.count, green: this.inputDeli.greenDeli.count}
             console.log(deliValues)
 
             //pickValues宣言
@@ -250,8 +247,9 @@
             console.log(pickValues)
 
             const db = firebase.firestore()
-            let dbDeliverys = await db.collection('deliverys').doc('J1sBuYY43uk9wFRQRhEw')
+            let dbDeliverys = await db.collection('deliverys').doc('6v1Gr224NHzppF36319B')
              .update({
+                 
                  distribute: deliValues,
                  date: todayDate,
                  pickups: pickValues,
@@ -266,12 +264,14 @@
         async conf () {
             const db = firebase.firestore()
 
-            const querySnapshot = await db.collection('deliverys').where("id", "==", "J1sBuYY43uk9wFRQRhEw").get()
+            const querySnapshot = await db.collection('deliverys').where("id", "==", "6v1Gr224NHzppF36319B").get()
             querySnapshot.forEach((doc) => {
-                var id = doc["shopId"]
+                var id = doc["ID"]
 
-                if(this.deliverys[shopId] != undefined) {
-                    this.deliverys[shopId] = doc
+                console.log(id)
+
+                if(this.deliverys[id] != undefined) {
+                    this.deliverys[id] = doc
                 }
 
                 console.log(id)

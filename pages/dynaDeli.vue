@@ -9,7 +9,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A043')"
                         >
                             ZYダーラ（梅ヶ丘）
                         </v-btn>
@@ -19,7 +19,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A044')"
                         >
                             MR浅草
                         </v-btn>
@@ -29,7 +29,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A045')"
                         >
                             DS銀座2丁目
                         </v-btn>
@@ -39,7 +39,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A046')"
                         >
                             DS銀座１丁目
                         </v-btn>
@@ -49,7 +49,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A047')"
                         >
                             MN銀座
                         </v-btn>
@@ -59,7 +59,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A048')"
                         >
                             DS御徒町
                         </v-btn>
@@ -69,7 +69,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A049')"
                         >
                             DSお茶の水
                         </v-btn>
@@ -79,7 +79,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A050')"
                         >
                             DS草加
                         </v-btn>
@@ -89,7 +89,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A051')"
                         >
                             DS川口
                         </v-btn>
@@ -99,7 +99,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A052')"
                         >
                             DS池袋西口
                         </v-btn>
@@ -109,7 +109,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A053')"
                         >
                             DS池袋東口
                         </v-btn>
@@ -119,7 +119,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A054')"
                         >
                             MR東池袋
                         </v-btn>
@@ -129,7 +129,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A055')"
                         >
                             DS高田馬場
                         </v-btn>
@@ -139,7 +139,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A056')"
                         >
                             DS新宿西口
                         </v-btn>
@@ -149,7 +149,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A057')"
                         >
                             DS四谷3丁目
                         </v-btn>
@@ -159,17 +159,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
-                        >
-                            MN銀座
-                        </v-btn>
-                        <br>
-                        <v-btn
-                            block
-                            x-large
-                            color="primary"
-                            dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A058')"
                         >
                             DS神楽坂
                         </v-btn>
@@ -179,7 +169,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A059')"
                         >
                             DS門前仲町
                         </v-btn>
@@ -189,7 +179,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A060')"
                         >
                             DS神田
                         </v-btn>
@@ -199,7 +189,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A061')"
                         >
                             DS月島
                         </v-btn>
@@ -209,7 +199,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A062')"
                         >
                             DS元住吉
                         </v-btn>
@@ -219,7 +209,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A063')"
                         >
                             DS千歳烏山
                         </v-btn>
@@ -229,7 +219,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A064')"
                         >
                             DS吉祥寺
                         </v-btn>
@@ -239,7 +229,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A065')"
                         >
                             DS荻窪
                         </v-btn>
@@ -249,7 +239,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A066')"
                         >
                             DS下高井戸
                         </v-btn>
@@ -259,7 +249,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A067')"
                         >
                             DS下北沢
                         </v-btn>
@@ -269,7 +259,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A068')"
                         >
                             DS三軒茶屋
                         </v-btn>
@@ -279,7 +269,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A069')"
                         >
                             DS自由が丘
                         </v-btn>
@@ -289,7 +279,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A070')"
                         >
                             DS学芸大学
                         </v-btn>
@@ -299,7 +289,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A071')"
                         >
                             DS中目黒
                         </v-btn>
@@ -309,7 +299,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A072')"
                         >
                             DS麻布十番
                         </v-btn>
@@ -319,7 +309,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A073')"
                         >
                             DS武蔵小杉
                         </v-btn>
@@ -329,7 +319,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A074')"
                         >
                             DS恵比寿
                         </v-btn>
@@ -339,7 +329,7 @@
                             x-large
                             color="primary"
                             dark
-                            @click="dialogSwitch('C')"
+                            @click="dialogSwitch('A075')"
                         >
                             DS高円寺
                         </v-btn>
@@ -407,7 +397,7 @@
         inputDeli: {
         blueDeli:{ label: "青納品数", count: 0 },
         orangeDeli:{ label: "オレンジ納品数", count: 0 },
-        redDeli:{ label: "赤納品数", count: 0 },
+        whiteDeli:{ label: "白納品数", count: 0 },
         greenDeli:{ label: "緑納品数", count: 0 },
         },
         //回収の連想配列
@@ -418,12 +408,12 @@
       }
     },
     methods: {
-        dialogSwitch (shopName) {
+        dialogSwitch (shopID) {
             this.dialog= true
         },
         async submit () {
             //deliValues宣言
-            var deliValues = {blue: this.inputDeli.blueDeli.count, orange: this.inputDeli.orangeDeli.count, red: this.inputDeli.redDeli.count, green: this.inputDeli.greenDeli.count}
+            var deliValues = {blue: this.inputDeli.blueDeli.count, orange: this.inputDeli.orangeDeli.count, white: this.inputDeli.whiteDeli.count, green: this.inputDeli.greenDeli.count}
             console.log(deliValues)
 
             //pickValues宣言
@@ -431,7 +421,7 @@
             console.log(pickValues)
 
             const db = firebase.firestore()
-            let dbDeliverys = await db.collection('deliverys').doc('J1sBuYY43uk9wFRQRhEw')
+            let dbDeliverys = await db.collection('deliverys').doc('6v1Gr224NHzppF36319B')
              .update({
                  distribute: deliValues,
                  date: todayDate,
@@ -447,9 +437,9 @@
         async conf () {
             const db = firebase.firestore()
 
-            const querySnapshot = await db.collection('deliverys').where("id", "==", "J1sBuYY43uk9wFRQRhEw").get()
+            const querySnapshot = await db.collection('deliverys').where("id", "==", "6v1Gr224NHzppF36319B").get()
             querySnapshot.forEach((doc) => {
-                var id = doc["shopId"]
+                var id = doc["ID"]
 
                 if(this.deliverys[shopId] != undefined) {
                     this.deliverys[shopId] = doc
