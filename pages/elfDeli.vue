@@ -322,6 +322,7 @@
   var today = new Date();
   console.log(today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate());
   var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate()
+  
 
   function Settoday () {
       var weekday = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ];
@@ -348,7 +349,7 @@
     },
     methods: {
         dialogSwitch (shopName) {
-            this.dialog= true
+            this.dialog = true
         },
         async submit () {
             //deliValues宣言
@@ -369,23 +370,24 @@
              .then(()=>{ return true }).catch(function (err) {
                 console.log(err)
                 return false
-
             });
             if (dbDeliverys){alert("更新完了")}else {alert("更新失敗")}
         },
         async conf () {
             const db = firebase.firestore()
-
+            
             const querySnapshot = await db.collection('deliverys').where("id", "==", "6v1Gr224NHzppF36319B").get()
             querySnapshot.forEach((doc) => {
-                var id = doc["shopId"]
 
+                
+                var id = doc["shopId"]
                 if(this.deliverys[shopId] != undefined) {
                     this.deliverys[shopId] = doc
                 }
-
+                
                 console.log(id)
                 console.log(doc.id)
+
                 console.log(doc.data().deliverys)
                 var deliverysNumber = doc.data().deliverys
                 for(var key in this.input){

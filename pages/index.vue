@@ -55,8 +55,11 @@ export default {
   methods: {
     doLogin() {
         var address = document.form1.Email.value;
+        
         var loginBool = firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+        
         .then(user => {return user})
+        
         .catch(err => {return false})
 
         if(loginBool){
@@ -70,6 +73,7 @@ export default {
             case "test@test.com":
               this.$router.push("/dynaDeli");
               break;
+            
           }
         } else {
           console.log("ログインできませんでした");

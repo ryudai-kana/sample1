@@ -3,11 +3,7 @@
         <div class="text-center">
             <v-row justify="center">
                 <v-col>
-                <!-- <v-col v-for="item, index in todayWeekday" :key= "index"> -->
                     <v-card-title>ハイエース</v-card-title>
-                        <!-- <v-btn @click="dialogSwitch(item.key)"> -->
-                            <!-- {[item.shopName]}
-                        </v-btn> -->
                         <v-btn
                             block
                             x-large
@@ -204,9 +200,10 @@
 <script>
   import firebase from "../plugins/firebase"
   var today = new Date();
+  
   console.log(today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate());
-  var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" +today.getDate()
 
+  var todayDate = today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate()
 
   export default {
     data () {
@@ -224,18 +221,11 @@
         bluePick:{ label: "青回収数", number: 0 },
         otherPick:{ label: "その他回収数", number: 0 },
         },
-        // todayRoute:[],
-
-        // todayWeekday: "",
-
-        // shopList: {
-        //     Thu:[{shopName:"DS茅ヶ崎"},{shopName:"DS戸塚"},{shopName:"DS桜木町"},{shopName:"DSみなとみらい"},{shopName:"DS横浜ポルタ"},{shopName:"DS大宮"},{shopName:"DS新都心"},{shopName:"DS浦和"}]
-        // }
       }
     },
     methods: {
         dialogSwitch (shopID) {
-            this.dialog= true
+            this.dialog = true
         },
         async submit () {
             //deliValues宣言
@@ -246,10 +236,10 @@
             var pickValues = {blue: this.inputPick.bluePick.number, other: this.inputPick.otherPick.number}
             console.log(pickValues)
 
+
             const db = firebase.firestore()
             let dbDeliverys = await db.collection('deliverys').doc('6v1Gr224NHzppF36319B')
              .update({
-                 
                  distribute: deliValues,
                  date: todayDate,
                  pickups: pickValues,
@@ -259,6 +249,7 @@
                 return false
 
             });
+            
             if (dbDeliverys){alert("更新完了")}else {alert("更新失敗")}
         },
         async conf () {
@@ -273,11 +264,10 @@
                 if(this.deliverys[id] != undefined) {
                     this.deliverys[id] = doc
                 }
-
                 console.log(id)
                 console.log(doc.id)
                 console.log(doc.data().deliverys)
-                var deliverysNumber = doc.data().deliverys
+                var deliverysNumber = doc.data().deriverys
                 for(var key in this.input){
                     this.input[key].count = deliverysNumber[key]
                 }
@@ -286,10 +276,6 @@
     },
     mounted(){
         this.conf()
-        // var dayOfWeek = today.getDay();
-        // var todayWeekday = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ][dayOfWeek];
-        // console.log(todayWeekday)
-        // this.todayRoute = this.shopList[todayWeekday]
     }
 }
 </script>
